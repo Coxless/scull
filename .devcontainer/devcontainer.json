@@ -1,0 +1,11 @@
+{
+  "name": "scull (Ubuntu 24.04)",
+  "build": { "dockerfile": "Dockerfile" },
+  "remoteUser": "ubuntu",
+  "postCreateCommand": "./scripts/setup-dev.sh",
+  "customizations": {
+    "vscode": {
+      "extensions": ["rust-lang.rust-analyzer", "llvm-vs-code-extensions.vscode-clangd"]
+    }
+  }
+}
