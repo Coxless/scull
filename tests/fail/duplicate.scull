@@ -1,0 +1,9 @@
+// expect: E0102
+fun f() {
+}
+
+fun f() {
+}
+
+fun main() {
+}

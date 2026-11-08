@@ -1,0 +1,7 @@
+// expect: E0103
+fun main() {
+  let x = 1
+  if true {
+    let x = 2
+  }
+}

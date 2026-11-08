@@ -1,0 +1,6 @@
+// expect: E0003
+struct Point {
+}
+
+fun main() {
+}

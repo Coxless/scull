@@ -1,0 +1,11 @@
+// exit: 101
+fun main()
+  uses Console
+{
+  var x = 9_223_372_036_854_775_806
+  Console.print("x = {x}")
+  x += 1
+  Console.print("x = {x}")
+  x += 1
+  Console.print("unreachable")
+}

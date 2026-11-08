@@ -1,0 +1,4 @@
+hello, Scull
+now = 20261108
+[log] Clock.now called
+now = 42

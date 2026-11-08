@@ -1,0 +1,4 @@
+// expect: E0201
+fun main() {
+  let s = "a" + "b"
+}

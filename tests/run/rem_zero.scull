@@ -1,0 +1,7 @@
+// exit: 101
+fun main()
+  uses Console
+{
+  let zero = 0
+  Console.print("{7 % zero}")
+}

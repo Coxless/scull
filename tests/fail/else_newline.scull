@@ -1,0 +1,7 @@
+// expect: E0002
+fun main() {
+  if true {
+  }
+  else {
+  }
+}

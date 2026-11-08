@@ -1,0 +1,10 @@
+// expect: E0204
+fun sign(n: Int) -> Int {
+  if n < 0 {
+    return -1
+  }
+}
+
+fun main() {
+  let s = sign(3)
+}

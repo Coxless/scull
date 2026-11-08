@@ -1,0 +1,16 @@
+// expect: E0301
+fun greet()
+  uses Console
+{
+  Console.print("hi")
+}
+
+fun helper() {
+  greet()
+}
+
+fun main()
+  uses Console
+{
+  helper()
+}

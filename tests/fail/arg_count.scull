@@ -1,0 +1,8 @@
+// expect: E0202
+fun add(a: Int, b: Int) -> Int {
+  return a + b
+}
+
+fun main() {
+  let x = add(1)
+}

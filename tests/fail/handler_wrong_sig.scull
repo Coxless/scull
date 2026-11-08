@@ -1,0 +1,13 @@
+// expect: E0303
+effect Clock {
+  fun now() -> Int
+}
+
+handler Bad for Clock {
+  fun now() -> String {
+    return "now"
+  }
+}
+
+fun main() {
+}

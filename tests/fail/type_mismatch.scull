@@ -1,0 +1,5 @@
+// expect: E0201
+fun main() {
+  if 1 {
+  }
+}

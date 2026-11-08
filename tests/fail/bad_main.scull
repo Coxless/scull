@@ -1,0 +1,10 @@
+// expect: E0304
+effect Clock {
+  fun now() -> Int
+}
+
+fun main()
+  uses Clock
+{
+  let t = Clock.now()
+}

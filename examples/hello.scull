@@ -1,0 +1,5 @@
+fun main()
+  uses Console
+{
+  Console.print("hello, Scull")
+}

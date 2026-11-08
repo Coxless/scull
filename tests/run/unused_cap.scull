@@ -1,0 +1,12 @@
+// expect: W0301
+fun quiet() -> Int
+  uses Console
+{
+  return 7
+}
+
+fun main()
+  uses Console
+{
+  Console.print("quiet = {quiet()}")
+}

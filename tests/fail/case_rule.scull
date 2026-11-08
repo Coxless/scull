@@ -1,0 +1,6 @@
+// expect: E0105
+fun Main() {
+}
+
+fun main() {
+}

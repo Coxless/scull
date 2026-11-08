@@ -1,0 +1,93 @@
+// 言語機能をひととおり使う
+effect Counter {
+  fun next() -> Int
+  fun label(n: Int) -> String
+}
+
+handler Fixed for Counter {
+  fun next() -> Int {
+    return 3
+  }
+  fun label(n: Int) -> String {
+    return "#{n}"
+  }
+}
+
+// ハンドラは外側の Console を使える。入れ子の handle では内側が優先される
+handler Shout for Console
+  uses Console
+{
+  fun print(s: String) {
+    Console.print("{s}!")
+  }
+}
+
+fun classify(n: Int) -> String {
+  if n < 0 {
+    return "negative"
+  } else if n == 0 {
+    return "zero"
+  } else {
+    return "positive"
+  }
+}
+
+fun side(name: String, v: Bool) -> Bool
+  uses Console
+{
+  Console.print("eval {name}")
+  return v
+}
+
+fun count()
+  uses Console, Counter
+{
+  var i = 0
+  let limit = Counter.next()
+  while i < limit {
+    Console.print("{Counter.label(i)}")
+    i += 1
+  }
+}
+
+fun main()
+  uses Console
+{
+  Console.print("{classify(-5)} {classify(0)} {classify(7)}")
+  Console.print("arith: {1 + 2 * 3} {(1 + 2) * 3} {-7 / 2} {-7 % 2} {10 - 3 - 2}")
+  let a = "a"
+  let b = "b"
+  Console.print("cmp: {1 < 2} {2 <= 1} {a == a} {a != b} {true == false}")
+  Console.print("escape: \{braces\} \"quoted\" back\\slash tab[\t]")
+  Console.print("logic: {!true || false} {true && !false}")
+
+  // 短絡評価:右辺は評価されない
+  if side("a", false) && side("b", true) {
+    Console.print("unreachable")
+  }
+  if side("c", true) || side("d", true) {
+    Console.print("short-circuit ok")
+  }
+
+  // 引数は左から右に評価される
+  let x = "x"
+  let y = "y"
+  Console.print("{side(x, true)} {side(y, false)}")
+
+  handle Counter by Fixed {
+    count()
+  }
+
+  handle Console by Shout {
+    Console.print("outer")
+    handle Console by Shout {
+      Console.print("inner")
+    }
+  }
+
+  var total = 1_000
+  total -= 1
+  total = total * 2
+  Console.print("total = {total}")
+  Console.print("日本語もそのまま: {total}")
+}

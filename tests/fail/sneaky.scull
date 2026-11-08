@@ -1,0 +1,9 @@
+// expect: E0301
+fun sneaky(x: Int) -> Int {
+  Console.print("hi")
+  return x
+}
+
+fun main() {
+  sneaky(1)
+}

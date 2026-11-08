@@ -1,0 +1,45 @@
+effect Clock {
+  fun now() -> Int
+}
+
+fun greet(name: String)
+  uses Console
+{
+  Console.print("hello, {name}")
+}
+
+fun report()
+  uses Console, Clock
+{
+  Console.print("now = {Clock.now()}")
+}
+
+handler FixedClock for Clock {
+  fun now() -> Int {
+    return 20261108
+  }
+}
+
+// ハンドラ自身も能力を使える
+handler LoggedClock for Clock
+  uses Console
+{
+  fun now() -> Int {
+    Console.print("[log] Clock.now called")
+    return 42
+  }
+}
+
+fun main()
+  uses Console
+{
+  greet("Scull")
+
+  handle Clock by FixedClock {
+    report()
+  }
+
+  handle Clock by LoggedClock {
+    report()
+  }
+}

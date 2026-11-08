@@ -1,0 +1,18 @@
+negative zero positive
+arith: 7 9 -3 -1 5
+cmp: true false true true false
+escape: {braces} "quoted" back\slash tab[	]
+logic: false true
+eval a
+eval c
+short-circuit ok
+eval x
+eval y
+true false
+#0
+#1
+#2
+outer!
+inner!!
+total = 1998
+日本語もそのまま: 1998

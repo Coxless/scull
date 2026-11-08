@@ -1,0 +1,6 @@
+// expect: E0001
+fun main()
+  uses Console
+{
+  Console.print("bad \q escape")
+}

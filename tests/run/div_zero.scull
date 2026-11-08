@@ -1,0 +1,11 @@
+// exit: 101
+fun divide(a: Int, b: Int) -> Int {
+  return a / b
+}
+
+fun main()
+  uses Console
+{
+  Console.print("10 / 3 = {divide(10, 3)}")
+  Console.print("10 / 0 = {divide(10, 0)}")
+}

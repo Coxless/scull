@@ -1,0 +1,14 @@
+// expect: W0301
+// handle の内側での Console の使用は、外側の uses Console の使用に数えない
+handler Silent for Console {
+  fun print(s: String) {
+  }
+}
+
+fun main()
+  uses Console
+{
+  handle Console by Silent {
+    Console.print("hidden")
+  }
+}

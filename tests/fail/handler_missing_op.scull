@@ -1,0 +1,14 @@
+// expect: E0303
+effect Store {
+  fun get() -> Int
+  fun put(v: Int)
+}
+
+handler Half for Store {
+  fun get() -> Int {
+    return 0
+  }
+}
+
+fun main() {
+}

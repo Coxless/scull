@@ -1,0 +1,19 @@
+handler Silent for Console {
+  fun print(s: String) {
+  }
+}
+
+fun noisy()
+  uses Console
+{
+  Console.print("this is hidden")
+}
+
+fun main()
+  uses Console
+{
+  handle Console by Silent {
+    noisy()
+  }
+  Console.print("only this is shown")
+}

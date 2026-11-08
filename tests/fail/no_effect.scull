@@ -1,0 +1,6 @@
+// expect: E0302
+fun main()
+  uses Console
+{
+  Network.send("hi")
+}

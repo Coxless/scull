@@ -1,0 +1,11 @@
+[package]
+name = "scullc"
+version = "0.1.0"
+edition = "2021"
+description = "Compiler for Scull 0, a capability-oriented language"
+
+[[bin]]
+name = "scullc"
+path = "src/main.rs"
+
+[dependencies]

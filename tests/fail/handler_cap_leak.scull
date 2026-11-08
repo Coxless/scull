@@ -1,0 +1,31 @@
+// expect: E0301
+effect Clock {
+  fun now() -> Int
+}
+
+handler LoggedClock for Clock
+  uses Console
+{
+  fun now() -> Int {
+    Console.print("now called")
+    return 0
+  }
+}
+
+fun tick() -> Int
+  uses Clock
+{
+  return Clock.now()
+}
+
+fun pure() -> Int {
+  handle Clock by LoggedClock {
+    return tick()
+  }
+}
+
+fun main()
+  uses Console
+{
+  Console.print("{pure()}")
+}

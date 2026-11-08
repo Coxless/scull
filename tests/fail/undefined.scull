@@ -1,0 +1,4 @@
+// expect: E0101
+fun main() {
+  let x = y + 1
+}

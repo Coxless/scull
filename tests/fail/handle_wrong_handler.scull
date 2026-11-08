@@ -1,0 +1,14 @@
+// expect: E0303
+effect Clock {
+  fun now() -> Int
+}
+
+handler Silent for Console {
+  fun print(s: String) {
+  }
+}
+
+fun main() {
+  handle Clock by Silent {
+  }
+}
